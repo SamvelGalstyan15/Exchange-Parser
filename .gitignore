@@ -1,5 +1,3 @@
-gitignore
-
 venv/
 .venv/
 env/
@@ -13,4 +11,4 @@ __pycache__/
 
 *.log
 
-.env
+

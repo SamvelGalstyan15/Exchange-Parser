@@ -57,7 +57,7 @@ try:
 
     if TOKEN and CHAT_ID:
         message = f"💰 Конвертация {usd_amount}$:\n🇦🇲 AMD: {res_amd}\n🇷🇺 RUB: {res_rub}\n🇪🇺 EUR: {res_eur}"
-        url = f"https://telegram.org{TOKEN}/sendMessage"
+        url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
         requests.post(url, data={"chat_id": CHAT_ID, "text": message})
 
 except Exception as ex:

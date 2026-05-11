@@ -3,9 +3,11 @@ import requests
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from kaggle_secrets import UserSecretsClient 
 
-TOKEN = os.getenv("TELEGRAM_TOKEN")
-CHAT_ID = os.getenv("TELEGRAM_CHAT_ID")
+user_secrets = UserSecretsClient()
+TOKEN = user_secrets.get_secret("TELEGRAM_TOKEN")
+CHAT_ID = user_secrets.get_secret("TELEGRAM_CHAT_ID")
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')

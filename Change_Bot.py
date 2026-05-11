@@ -44,8 +44,7 @@ try:
     clean_amd = kurs_amd.replace(',', '').strip()
     clean_ru = kurs_ru.replace(',', '').strip()
 
-    usd_amount = int(input('Enter usd count: '))
-    converter = Change(usd=usd_amount, rate_amd=float(clean_amd), rate_ru=float(clean_ru), rate_eur=1.2)
+    converter = Change(usd=100, rate_amd=float(clean_amd), rate_ru=float(clean_ru), rate_eur=1.2)
 
     res_amd = converter.usd_to_amd()
     res_rub = converter.usd_to_rub()
@@ -56,7 +55,7 @@ try:
     print(f"EUR: {res_eur}")
 
     if TOKEN and CHAT_ID:
-        message = f"💰 Конвертация {usd_amount}$:\n🇦🇲 AMD: {res_amd}\n🇷🇺 RUB: {res_rub}\n🇪🇺 EUR: {res_eur}"
+        message = f"💰 Конвертация 100$:\n🇦🇲 AMD: {res_amd}\n🇷🇺 RUB: {res_rub}\n🇪🇺 EUR: {res_eur}"
         url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
         requests.post(url, data={"chat_id": CHAT_ID, "text": message})
 
